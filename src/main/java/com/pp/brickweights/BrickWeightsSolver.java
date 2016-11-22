@@ -9,7 +9,7 @@ package com.pp.brickweights;
  * 
  * @author Pavel Perminov (packpaul@mail.ru)
  */
-public class BrickWeightSolver {
+public class BrickWeightsSolver {
     
     /**
      * Finds the weight pressure that is exposed to the brick in row {@code row} at position {@code pos} 

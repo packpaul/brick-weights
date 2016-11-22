@@ -15,7 +15,7 @@ public class Main {
         final int row = 322;
         final int pos = 156;
         
-        double weight = new BrickWeightSolver().weight(row, pos);
+        double weight = new BrickWeightsSolver().weight(row, pos);
         
         System.out.println(
                 String.format("Weight pressure exposed to the brick in position (%d, %d) is %f", row, pos, weight));
