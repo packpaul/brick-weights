@@ -18,8 +18,22 @@ public class BrickWeightsSolver {
      * @return
      */
     public double weight(int row, int pos) {
-        // TODO:
-        return 0.0;
+        
+        if (! ((row >= 0) && (pos >= 0) && (pos <= row))) {
+            throw new IllegalArgumentException("Incorrect pos or/and row values!");
+        }
+        
+        double[] weights = new double[row + 1];
+        
+        for (int r = 1; r <= row; r++) {
+            for (int p = r; p > 0; p--) {
+                double halfWeight = (weights[p - 1] + 1.0) / 2; 
+                weights[p] += halfWeight;
+                weights[p - 1] = halfWeight;
+            }
+        }
+        
+        return weights[pos];
     }
  
 }

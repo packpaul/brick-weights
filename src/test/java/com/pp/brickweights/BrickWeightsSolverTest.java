@@ -92,7 +92,12 @@ public class BrickWeightsSolverTest {
     public void testWeight_322_156() {
         final double weight = solver.weight(322, 156);
         
-        assertEquals(322.48749781747574, weight, COMPARISON_DELTA);
+        assertEquals(306.48749781747574, weight, COMPARISON_DELTA);
     }
 
+    @Test(expected=IllegalArgumentException.class)
+    public void testWeightIncorrectArgs() {
+        solver.weight(3, 5);
+    }
+    
 }
