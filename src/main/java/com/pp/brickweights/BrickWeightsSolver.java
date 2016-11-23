@@ -17,7 +17,7 @@ public class BrickWeightsSolver {
      * @param pos  position 0-based
      * @return
      */
-    public double weight(int row, int pos) {
+    public double weight(final int row, final int pos) {
         
         if (! ((row >= 0) && (pos >= 0) && (pos <= row))) {
             throw new IllegalArgumentException("Incorrect pos or/and row values!");
@@ -26,7 +26,11 @@ public class BrickWeightsSolver {
         double[] weights = new double[row + 1];
         
         for (int r = 1; r <= row; r++) {
-            for (int p = r; p > 0; p--) {
+            // optimization
+            int leftPosBound = Math.max(1, pos - (row - r));
+            int rightPosBound = Math.min(r, pos + 1);
+
+            for (int p = rightPosBound; (p >= leftPosBound); p--) {
                 double halfWeight = (weights[p - 1] + 1.0) / 2; 
                 weights[p] += halfWeight;
                 weights[p - 1] = halfWeight;
